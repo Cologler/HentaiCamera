@@ -1,13 +1,96 @@
-﻿<Page
-    x:Class="HandWithCamera.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:HandWithCamera"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="HandWithCamera.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HandWithCamera"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="ContentGrid"
+              Background="Transparent">
+
+            <Image x:Name="BackgroundImage"/>
+
+            <Grid x:Name="CameraContentGrid">
+                <UIElement.Clip>
+                    <RectangleGeometry x:Name="CameraContentClip"
+                                       Rect="-28,142,160,100">
+                        <RectangleGeometry.Transform>
+                            <CompositeTransform x:Name="CameraContentClipCompositeTransform"
+                                                Rotation="-15"
+                                                TranslateX="0" />
+                        </RectangleGeometry.Transform>
+
+                    </RectangleGeometry>
+                </UIElement.Clip>
+
+                <Image x:Name="CameraContentImage"
+                       ManipulationMode="TranslateX, TranslateY">
+                    <Image.RenderTransform>
+                        <CompositeTransform x:Name="CameraContentImageCompositeTransform"
+                                            CenterX="0.5"
+                                            CenterY="0.5"
+                                            ScaleX="1.1"
+                                            ScaleY="1.1"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+
+            <Image x:Name="CameraImage"
+                   Source="Assets/camera.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   ManipulationMode="TranslateX, TranslateY"
+                   SizeChanged="CameraImage_SizeChanged"
+                   ManipulationDelta="CameraImage_ManipulationDelta"
+                   PointerWheelChanged="CameraImage_PointerWheelChanged">
+                <Image.RenderTransform>
+                    <CompositeTransform x:Name="CameraImageCompositeTransform"
+                                        CenterX="0.5"
+                                        CenterY="0.5" />
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+
+        <CommandBar Grid.Row="1"
+                    VerticalAlignment="Bottom">
+            <AppBarButton x:Name="OpenButton"
+                          Click="OpenButton_OnClick"
+                          Icon="OpenFile" />
+            <AppBarButton x:Name="BuildButton"
+                          Click="BuildButton_OnClick"
+                          Icon="Save" />
+        </CommandBar>
+
+        <Border x:Name="Hint1Border"
+                Width="5"
+                Height="5"
+                Background="Red"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <CompositeTransform x:Name="Hint1Transform" TranslateX="0" />
+            </Border.RenderTransform>
+        </Border>
+
+        <Border x:Name="Hint2Border"
+                Width="5"
+                Height="5"
+                Background="Blue"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <CompositeTransform x:Name="Hint2Transform" TranslateX="0" />
+            </Border.RenderTransform>
+        </Border>
 
     </Grid>
 </Page>
