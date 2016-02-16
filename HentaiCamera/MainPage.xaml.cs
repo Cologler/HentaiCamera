@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Graphics.Display;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
-namespace HandWithCamera
+namespace HentaiCamera
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -32,10 +29,6 @@ namespace HandWithCamera
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            Debug.WriteLine(this.CameraContentClip.Rect);
-            Debug.WriteLine(this.CameraImage.ActualWidth);
-            Debug.WriteLine(this.CameraImage.ActualHeight);
         }
 
         private void CameraImage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -46,9 +39,6 @@ namespace HandWithCamera
                 142 * sc,
                 160 * sc,
                 100 * sc);
-            Debug.WriteLine("CameraImage_SizeChanged");
-            Debug.WriteLine(e.NewSize);
-            Debug.WriteLine(rect);
             this.CameraContentClip.Rect = rect;
             this.Render();
         }

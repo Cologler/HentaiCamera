@@ -7,8 +7,8 @@
     <ProjectGuid>{21B2A043-887C-4B18-AA5A-8722E9887C5D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HandWithCamera</RootNamespace>
-    <AssemblyName>HandWithCamera</AssemblyName>
+    <RootNamespace>HentaiCamera</RootNamespace>
+    <AssemblyName>HentaiCamera</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -107,8 +107,6 @@
     <None Include="HandWithCamera_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\example2.jpg" />
-    <Content Include="Assets\example1.jpg" />
     <Content Include="Assets\camera.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
